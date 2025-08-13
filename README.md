@@ -1,16 +1,9 @@
-# flutter_application_3
+# Flutter exp 3
 
-A new Flutter project.
+# ListView Builder
 
-## Getting Started
+<img width="604" height="731" alt="3_1" src="https://github.com/user-attachments/assets/b05f3c5c-4d2e-44e9-a4e2-066857b9233e" />
 
-This project is a starting point for a Flutter application.
+<img width="604" height="400" alt="3_2" src="https://github.com/user-attachments/assets/f4cec991-3348-4914-843d-3003c500dd24" />
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img width="621" height="376" alt="3_3" src="https://github.com/user-attachments/assets/efc51e90-2257-40b8-84a4-4e5ac250101d" />
