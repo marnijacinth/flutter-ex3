@@ -6,78 +6,85 @@ void main() {
 }
 
 
-class Place {
+class Furniture {
   String name;
-  double ticket_price;
-  int no_of_hours;
-  Place({required this.name, required this.ticket_price, required this.no_of_hours});
+  double price;
+  String material;
+  Furniture({required this.name, required this.price, required this.material});
 }
 
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
-  final List<Place> placelist = [
-    Place(name: "Taj Mahal", ticket_price: 400, no_of_hours: 15),
-    Place(name: "Agra Fort", ticket_price: 500, no_of_hours: 12),
-    Place(name: "Red Fort", ticket_price: 370, no_of_hours: 9),
-    Place(name: "Qutub Minar", ticket_price: 450, no_of_hours: 15),
-    Place(name: "Fatehpur Sikri", ticket_price: 200, no_of_hours: 8),
-    Place(name: "India Gate", ticket_price: 20, no_of_hours: 24),
+
+
+  final List<Furniture> furnitureList = [
+    Furniture(name: "Sofa", price: 12000, material: "Leather"),
+    Furniture(name: "Dining Table", price: 8500, material: "Wood"),
+    Furniture(name: "Bed", price: 25500, material: "Metal"),
+    Furniture(name: "Chair", price: 1500, material: "Plastic"),
+    Furniture(name: "Wardrobe", price: 9300, material: "Wood"),
+    Furniture(name: "Bookshelf", price: 21000, material: "Engineered Wood"),
   ];
-
-
-
-
 
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Dynamic ListView",
+      title: "Furniture Details Catalog",
       home: Scaffold(
-        appBar: AppBar(title: Text('Ministry Of Tourism'),backgroundColor: const Color.fromARGB(255, 12, 223, 167),),
+        appBar: AppBar(
+          title: Text('Furniture Details Catalog'),
+          backgroundColor: const Color.fromARGB(255, 202, 152, 101),
+        ),
         body: ListView.builder(
-          itemCount: placelist.length,
+          itemCount: furnitureList.length,
           itemBuilder: (context, index) {
-            final place = placelist[index];
+            final furniture = furnitureList[index];
             return Column(
               children: [
                 ListTile(
                   leading: CircleAvatar(
-                    child: Text(place.name[0]),
+                    child: Text(furniture.name[0]),
                   ),
-                  title: Text(place.name),
+                  title: Text(furniture.name),
                   subtitle: Text(
-                    "Ticket Price: Rs.${place.ticket_price}\nTime opened: ${place.no_of_hours} hrs"
+                    "Price: Rs.${furniture.price}\nMaterial: ${furniture.material}"
                   ),
                   trailing: TextButton(
                     style: TextButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 7, 225, 222),
+                      backgroundColor: const Color.fromARGB(255, 214, 122, 16),
                       foregroundColor: Colors.black,
                     ),
                     onPressed: () {
                       showDialog(
                         context: context,
-                        builder: (context)=> AlertDialog(
-                          title: Text('Entry Log'),
-                          content: Text("Your entry at ${place.name} is saved."),
+                        builder: (context) => AlertDialog(
+                          title: Text('Items in WishList'),
+                          content: Text("The ${furniture.name} is add to your Wishlist."),
                           actions: [
-                            TextButton (
-                            onPressed: ()=>Navigator.pop(context),
-                            child: Text('OK'))
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text('OK')
+                            )
                           ],
                         )
                       );
                     },
-                    child: Text('Record your Journey')),
-                    onTap: (){
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text("${place.name} is visited."),
-                          duration: Duration(seconds: 1),
-                          )
-                      );
-                    },
+                    child: Text('+ WishlList')
+                  ),
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text("${furniture.name} selected."),
+                        duration: Duration(seconds: 1),
+                      )
+                    );
+                  },
+                ),
+                Divider(
+                  color:Colors.brown,
+                  thickness: 3.0,
                 )
               ],
             );
